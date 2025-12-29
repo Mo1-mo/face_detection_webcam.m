@@ -1,0 +1,18 @@
+# MATLAB Face Detection Project
+
+This project performs real-time face detection using a webcam in MATLAB.
+
+## Folder Structure
+- src: MATLAB source files
+- data: Input data files
+- figures: Output figures
+- simulink: Simulink models
+- docs: Documentation
+
+## Requirements
+- MATLAB
+- Computer Vision Toolbox
+
+## How to Run
+Open MATLAB, navigate to src folder, and run:
+face_detection_webcam.m

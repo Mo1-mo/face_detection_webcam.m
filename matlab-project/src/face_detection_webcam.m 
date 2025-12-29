@@ -1,0 +1,41 @@
+clc;
+clear;
+
+% Initialize webcam
+cam = webcam;
+
+% Create face detector
+faceDetector = vision.CascadeObjectDetector();
+
+% Create figure window
+hFig = figure('Name','Face Detection','NumberTitle','off');
+
+% Run while the figure window is open
+while ishandle(hFig)
+    % Capture image from webcam
+    frame = snapshot(cam);
+
+    % Detect faces
+    bboxes = step(faceDetector, frame);
+
+    % Display image
+    imshow(frame);
+    hold on;
+
+    % Draw RED transparent face boxes
+    for i = 1:size(bboxes,1)
+        rectangle('Position', bboxes(i,:), ...
+                  'EdgeColor','r', ...
+                  'FaceColor',[1 0 0 0.3], ... % RED with transparency
+                  'LineWidth',2);
+    end
+
+    hold off;
+    drawnow;
+end
+
+% Release webcam when figure is closed
+clear cam;
+disp('Webcam released successfully.');
+
+
